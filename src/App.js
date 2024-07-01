@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ExpandingCardsPage from "./pages/ExpandingCardsPage";
+import RandomChoicePickerPage from "./pages/RandomChoicePickerPage";
+import AnimatedNavigationPage from "./pages/AnimatedNavigationPage";
+import IncrementingCounterPage from "./pages/IncrementingCounterPage";
+import DrinkWaterPage from "./pages/DrinkWaterPage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/expanding-cards" element={<ExpandingCardsPage />} />
+        <Route
+          path="/random-choice-picker"
+          element={<RandomChoicePickerPage />}
+        />
+        <Route
+          path="/animated-navigation"
+          element={<AnimatedNavigationPage />}
+        ></Route>
+        <Route
+          path="/incrementing-counter"
+          element={<IncrementingCounterPage />}
+        ></Route>
+        <Route path="/drink-water" element={<DrinkWaterPage />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -5,6 +5,7 @@ import RandomChoicePickerPage from "./pages/RandomChoicePickerPage";
 import AnimatedNavigationPage from "./pages/AnimatedNavigationPage";
 import IncrementingCounterPage from "./pages/IncrementingCounterPage";
 import DrinkWaterPage from "./pages/DrinkWaterPage";
+import MovieAppPage from "./pages/MovieAppPage";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           element={<IncrementingCounterPage />}
         ></Route>
         <Route path="/drink-water" element={<DrinkWaterPage />}></Route>
+        <Route path="/movie-app" element={<MovieAppPage />}></Route>
       </Routes>
     </BrowserRouter>
   );

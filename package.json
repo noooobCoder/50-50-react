@@ -10,6 +10,7 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.24.0",
     "react-scripts": "5.0.1",
+    "react-virtualized": "^9.22.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -17,7 +18,7 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "postcss": "postcss src/styles/DrinkWaterPage.module.css -o dist/styles.module.css"
+    "postcss": "postcss src/styles/test.css -o dist/styles.css"
   },
   "eslintConfig": {
     "extends": [
@@ -41,6 +42,7 @@
     "@craco/craco": "^7.1.0",
     "postcss": "^8.4.39",
     "postcss-cli": "^11.0.0",
-    "postcss-px-to-viewport": "^1.1.1"
+    "postcss-px-to-viewport": "^1.1.1",
+    "postcss-px-to-viewport-8-plugin": "^1.2.5"
   }
 }

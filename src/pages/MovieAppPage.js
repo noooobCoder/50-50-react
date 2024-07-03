@@ -18,12 +18,9 @@ const MovieAppPage = () => {
     width: window.innerWidth,
     height: window.innerHeight - 90,
   });
+  const [loading, setLoading] = useState(true);
 
   const gridRef = useRef(null);
-
-  useEffect(() => {
-    getMovies(API_URL);
-  }, [API_URL]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -53,10 +50,14 @@ const MovieAppPage = () => {
   }, [API_URL]);
 
   const getMovies = async (url) => {
+    setLoading(true);
     const res = await fetch(url);
     const data = await res.json();
-    console.log(data.results);
-    setMovies(data.results);
+    // console.log(data.results);
+    setTimeout(() => {
+      setMovies(data.results);
+      setLoading(false);
+    }, 2000);
   };
 
   const handleSearch = (e) => {
@@ -87,13 +88,18 @@ const MovieAppPage = () => {
 
     return (
       <div key={key} style={style}>
-        <MovieItems
-          src={IMG_PATH + movie.poster_path}
-          title={movie.title}
-          score={movie.vote_average}
-          overview={movie.overview}
-          color={getClassByRate(movie.vote_average)}
-        />
+        {loading ? (
+          <MovieItems loading={loading} />
+        ) : (
+          <MovieItems
+            src={IMG_PATH + movie.poster_path}
+            title={movie.title}
+            score={movie.vote_average}
+            overview={movie.overview}
+            color={getClassByRate(movie.vote_average)}
+            loading={loading}
+          />
+        )}
       </div>
     );
   };

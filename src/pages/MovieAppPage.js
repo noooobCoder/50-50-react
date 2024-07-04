@@ -54,10 +54,8 @@ const MovieAppPage = () => {
     const res = await fetch(url);
     const data = await res.json();
     // console.log(data.results);
-    setTimeout(() => {
-      setMovies(data.results);
-      setLoading(false);
-    }, 2000);
+    setMovies(data.results);
+    setLoading(false);
   };
 
   const handleSearch = (e) => {

@@ -9,20 +9,30 @@ const MovieItems = ({ src, title, score, overview, color, loading }) => {
   return (
     <div className={styles.movie}>
       {loading ? (
-        <Skeleton className={styles.image} baseColor="#373b69" />
+        <Skeleton
+          className={styles.image}
+          baseColor="#373b69"
+          highlightColor="#444"
+        />
       ) : (
         <LazyLoadImage
           className={styles.image}
           src={src}
           alt={title}
           effect="blur"
-          placeholderSrc="data:image/gif;base64,..." // 替换为一个小的占位符图片
+          placeholderSrc="https://via.placeholder.com/300x450" // 替换为一个小的占位符图片
         />
       )}
       <div className={styles.movieInfo}>
         {loading ? (
           <>
-            <Skeleton className={styles.title} height={25} width={`60%`} />
+            <Skeleton
+              count={1}
+              height={40}
+              width={200}
+              baseColor="#22254b"
+              highlightColor="#444"
+            />
             <Skeleton
               className={`${color} ${styles.span}`}
               height={25}

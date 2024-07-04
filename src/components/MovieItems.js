@@ -6,6 +6,31 @@ import "react-loading-skeleton/dist/skeleton.css";
 import styles from "../styles/MovieAppPage.module.css";
 
 const MovieItems = ({ src, title, score, overview, color, loading }) => {
+  const handleImageError = (e) => {
+    e.target.src = "http://iph.href.lu/300x450?text=啊偶，图片不见了";
+  };
+
+  // const isImage = () => {
+  //   return new Promise((resolve) => {
+  //     const image = new Image();
+  //     image.src = src;
+  //     image.onload = () => {
+  //       resolve(true);
+  //     };
+  //     image.onerror = () => {
+  //       resolve(false);
+  //     };
+  //   });
+  // };
+
+  // isImage(src).then((result) => {
+  //   if (result) {
+  //     console.log("Valid image");
+  //   } else {
+  //     console.log(`Invalid image \n ${src}`);
+  //   }
+  // });
+
   return (
     <div className={styles.movie}>
       {loading ? (
@@ -21,6 +46,7 @@ const MovieItems = ({ src, title, score, overview, color, loading }) => {
           alt={title}
           effect="blur"
           placeholderSrc="https://via.placeholder.com/300x450" // 替换为一个小的占位符图片
+          onError={handleImageError}
         />
       )}
       <div className={styles.movieInfo}>

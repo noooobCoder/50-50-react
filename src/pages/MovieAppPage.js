@@ -13,10 +13,10 @@ const MovieAppPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [dimensions, setDimensions] = useState({
     columnCount: 3,
-    columnWidth: 350,
+    columnWidth: 400,
     rowHeight: 1000,
     width: window.innerWidth,
-    height: window.innerHeight - 90,
+    height: window.innerHeight,
   });
   const [loading, setLoading] = useState(true);
 
@@ -24,15 +24,15 @@ const MovieAppPage = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      const columnWidth = 350; // Adjust based on your design
+      const columnWidth = 400; // Adjust based on your design
       const columnCount = Math.floor(window.innerWidth / columnWidth);
-      const rowHeight = 600; // Adjust based on your design
+      const rowHeight = 580; // Adjust based on your design
       setDimensions({
         columnCount,
         columnWidth,
         rowHeight, // Adjust based on your design
         width: window.innerWidth,
-        height: window.innerHeight - 90,
+        height: window.innerHeight - 77,
       });
       if (gridRef.current) {
         gridRef.current.recomputeGridSize();
@@ -85,7 +85,10 @@ const MovieAppPage = () => {
     const movie = movies[movieIndex];
 
     return (
-      <div key={key} style={style}>
+      <div
+        key={key}
+        style={{ ...style, display: "flex", justifyContent: "center" }}
+      >
         {loading ? (
           <MovieItems loading={loading} />
         ) : (
@@ -126,19 +129,7 @@ const MovieAppPage = () => {
           rowCount={Math.ceil(movies.length / dimensions.columnCount)}
           rowHeight={dimensions.rowHeight}
           width={dimensions.width}
-          style={{ display: "grid" }}
         />
-        {/* {movies.length > 0 &&
-          movies.map((movie) => (
-            <MovieItems
-              key={movie.id}
-              src={IMG_PATH + movie.poster_path}
-              title={movie.title}
-              score={movie.vote_average}
-              overview={movie.overview}
-              color={getClassByRate(movie.vote_average)}
-            />
-          ))} */}
       </main>
     </div>
   );

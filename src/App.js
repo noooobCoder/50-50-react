@@ -6,6 +6,7 @@ import AnimatedNavigationPage from "./pages/AnimatedNavigationPage";
 import IncrementingCounterPage from "./pages/IncrementingCounterPage";
 import DrinkWaterPage from "./pages/DrinkWaterPage";
 import MovieAppPage from "./pages/MovieAppPage";
+import BackgroundSliderPage from "./pages/BackgroundSliderPage";
 
 function App() {
   return (
@@ -26,6 +27,10 @@ function App() {
         ></Route>
         <Route path="/drink-water" element={<DrinkWaterPage />}></Route>
         <Route path="/movie-app" element={<MovieAppPage />}></Route>
+        <Route
+          path="/background-slider"
+          element={<BackgroundSliderPage />}
+        ></Route>
       </Routes>
     </BrowserRouter>
   );

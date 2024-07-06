@@ -7,6 +7,7 @@ import IncrementingCounterPage from "./pages/IncrementingCounterPage";
 import DrinkWaterPage from "./pages/DrinkWaterPage";
 import MovieAppPage from "./pages/MovieAppPage";
 import BackgroundSliderPage from "./pages/BackgroundSliderPage";
+import ThemeClockPage from "./pages/ThemeClockPage";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           path="/background-slider"
           element={<BackgroundSliderPage />}
         ></Route>
+        <Route path="/theme-clock" element={<ThemeClockPage />}></Route>
       </Routes>
     </BrowserRouter>
   );

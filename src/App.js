@@ -9,6 +9,7 @@ import MovieAppPage from "./pages/MovieAppPage";
 import BackgroundSliderPage from "./pages/BackgroundSliderPage";
 import ThemeClockPage from "./pages/ThemeClockPage";
 import ButtonRippleEffectPage from "./pages/ButtonRippleEffectPage";
+import DragNDropPage from "./pages/DragNDropPage";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           path="/button-ripple-effect"
           element={<ButtonRippleEffectPage />}
         ></Route>
+        <Route path="/drag-N-drop" element={<DragNDropPage />}></Route>
       </Routes>
     </BrowserRouter>
   );

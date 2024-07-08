@@ -8,6 +8,7 @@ import DrinkWaterPage from "./pages/DrinkWaterPage";
 import MovieAppPage from "./pages/MovieAppPage";
 import BackgroundSliderPage from "./pages/BackgroundSliderPage";
 import ThemeClockPage from "./pages/ThemeClockPage";
+import ButtonRippleEffectPage from "./pages/ButtonRippleEffectPage";
 
 function App() {
   return (
@@ -33,6 +34,10 @@ function App() {
           element={<BackgroundSliderPage />}
         ></Route>
         <Route path="/theme-clock" element={<ThemeClockPage />}></Route>
+        <Route
+          path="/button-ripple-effect"
+          element={<ButtonRippleEffectPage />}
+        ></Route>
       </Routes>
     </BrowserRouter>
   );

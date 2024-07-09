@@ -1,6 +1,6 @@
+import styles from "./styles.module.css";
 import React, { useState, useEffect, useRef } from "react";
-import styles from "../styles/ThemeClockPage.module.css";
-import useClock from "../hooks/useClock";
+import useClock from "../../hooks/useClock";
 
 const ThemeClockPage = () => {
   const htmlRef = useRef(document.querySelector("html"));

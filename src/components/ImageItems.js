@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/ExpandingCardsPage.module.css";
+import styles from "../pages/ExpandingCardsPage/styles.module.css";
 
 const ImageItem = ({ activation, src, alt, handleClick }) => {
   return (

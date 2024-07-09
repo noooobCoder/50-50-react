@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/DrinkWaterPage.module.css";
+import styles from "../pages/DrinkWaterPage/styles.module.css";
 
 const SmallCup = ({ full, handleClick, capacity }) => {
   return (

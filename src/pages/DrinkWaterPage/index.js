@@ -1,6 +1,6 @@
+import styles from "./styles.module.css";
 import React, { useState } from "react";
-import SmallCup from "../components/SmallCup";
-import styles from "../styles/DrinkWaterPage.module.css";
+import SmallCup from "../../components/SmallCup";
 
 const DrinkWaterPage = () => {
   const totalCups = 8;

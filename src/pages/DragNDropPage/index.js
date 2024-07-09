@@ -1,5 +1,5 @@
+import styles from "./styles.module.css";
 import React, { useRef, useState } from "react";
-import styles from "../styles/DragNDropPage.module.css";
 
 const DragNDropPage = () => {
   const fillRefs = useRef([]);

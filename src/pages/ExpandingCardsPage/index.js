@@ -1,6 +1,6 @@
+import styles from "./styles.module.css";
 import React, { useState } from "react";
-import ImageItem from "../components/ImageItems";
-import styles from "../styles/ExpandingCardsPage.module.css";
+import ImageItem from "../../components/ImageItems";
 
 const ExpandingCardsPage = () => {
   const [activationNum, setActivationNum] = useState(0);

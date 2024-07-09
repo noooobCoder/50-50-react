@@ -3,7 +3,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import styles from "../styles/MovieAppPage.module.css";
+import styles from "../pages/MovieAppPage/styles.module.css";
 
 const MovieItems = ({ src, title, score, overview, color, loading }) => {
   const handleImageError = (e) => {

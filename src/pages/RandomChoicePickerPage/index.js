@@ -1,5 +1,5 @@
+import styles from "./styles.module.css";
 import React, { useState } from "react";
-import styles from "../styles/RandomChoicePickerPage.module.css";
 
 const RandomChoicePickerPage = () => {
   const title = `Enter all of the Choices divided by Commas (',') \n Press Enter When You're Done`;

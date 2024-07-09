@@ -4,13 +4,10 @@
   box-sizing: border-box;
 }
 
-:root {
+html {
   --origin-second: 0deg;
   --primary-color: #000;
   --secondary-color: #fff;
-}
-
-html {
   transition: all 0.5s ease-in;
 }
 

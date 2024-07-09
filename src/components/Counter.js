@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styles from "../styles/IncrementingCounterPage.module.css";
+import styles from "../pages/IncrementingCounterPage/styles.module.css";
 
 const Counter = ({ icon, data, text }) => {
   const [count, setCount] = useState(0);

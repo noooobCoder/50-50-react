@@ -1,5 +1,5 @@
+import styles from "./styles.module.css";
 import { React, useState } from "react";
-import styles from "../styles/AnimatedNavigationPage.module.css";
 
 const AnimatedNavigationPage = () => {
   const [active, setActive] = useState(true);

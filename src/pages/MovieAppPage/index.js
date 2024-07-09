@@ -1,6 +1,6 @@
+import styles from "./styles.module.css";
 import React, { useState, useEffect, useRef } from "react";
-import styles from "../styles/MovieAppPage.module.css";
-import MovieItems from "../components/MovieItems";
+import MovieItems from "../../components/MovieItems";
 import { Grid } from "react-virtualized";
 
 const MovieAppPage = () => {

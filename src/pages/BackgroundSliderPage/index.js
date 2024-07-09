@@ -1,5 +1,5 @@
+import styles from "./styles.module.css";
 import React, { useState, useEffect } from "react";
-import styles from "../styles/BackgroundSliderPage.module.css";
 
 const BackgroundSliderPage = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -45,10 +45,10 @@ const BackgroundSliderPage = () => {
   };
 
   const images = [
-    { id: 1, src: "../images/01.JPG" },
-    { id: 2, src: "../images/02.JPG" },
-    { id: 3, src: "../images/03.JPG" },
-    { id: 4, src: "../images/04.JPG" },
+    { id: 1, src: "../../images/01.JPG" },
+    { id: 2, src: "../../images/02.JPG" },
+    { id: 3, src: "../../images/03.JPG" },
+    { id: 4, src: "../../images/04.JPG" },
   ];
   return (
     <div

@@ -4,13 +4,10 @@
   box-sizing: border-box;
 }
 
-:root {
+.body {
   --border-color: #144fc6;
   --fill-color: #6ab3f8;
   /* overflow: hidden; */
-}
-
-.body {
   /* transform: scale(1.5); */
   background-color: #3493e4;
   color: #fff;

@@ -1,5 +1,5 @@
+import styles from "./styles.module.css";
 import React, { useState, useEffect, useRef } from "react";
-import styles from "../styles/DrawingAppPage.module.css";
 
 const DrawingAppPage = () => {
   const canvasRef = useRef(null);

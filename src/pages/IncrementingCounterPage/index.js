@@ -1,6 +1,6 @@
+import styles from "./styles.module.css";
 import React from "react";
-import styles from "../styles/IncrementingCounterPage.module.css";
-import Counter from "../components/Counter";
+import Counter from "../../components/Counter";
 
 const IncrementingCounterPage = () => {
   const iconClasses = [

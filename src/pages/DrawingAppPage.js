@@ -96,10 +96,7 @@ const DrawingAppPage = () => {
         height={650}
       ></canvas>
       <div className={styles.toolBox}>
-        <button
-          className={`${styles.decrease} ${styles.button}`}
-          onClick={handleSizeDecrease}
-        >
+        <button className={styles.button} onClick={handleSizeDecrease}>
           -
         </button>
         <input
@@ -110,22 +107,11 @@ const DrawingAppPage = () => {
           min={1}
           max={50}
         />
-        <button
-          className={`${styles.increase} ${styles.button}`}
-          onClick={handleSizeIncrease}
-        >
+        <button className={styles.button} onClick={handleSizeIncrease}>
           +
         </button>
-        <input
-          className={styles.color}
-          type="color"
-          value={color}
-          onChange={handleColorChange}
-        />
-        <button
-          className={`${styles.clear} ${styles.button}`}
-          onClick={handleClear}
-        >
+        <input type="color" value={color} onChange={handleColorChange} />
+        <button className={styles.button} onClick={handleClear}>
           X
         </button>
       </div>

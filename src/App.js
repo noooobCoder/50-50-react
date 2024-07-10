@@ -11,6 +11,7 @@ import ThemeClockPage from "./pages/ThemeClockPage";
 import ButtonRippleEffectPage from "./pages/ButtonRippleEffectPage";
 import DragNDropPage from "./pages/DragNDropPage";
 import DrawingAppPage from "./pages/DrawingAppPage";
+import KineticCssLoaderPage from "./pages/KineticCssLoaderPage";
 
 function App() {
   const location = useLocation();
@@ -44,6 +45,10 @@ function App() {
         ></Route>
         <Route path="/drag-N-drop" element={<DragNDropPage />}></Route>
         <Route path="/drawing-app" element={<DrawingAppPage />}></Route>
+        <Route
+          path="/kinetic-css-loader"
+          element={<KineticCssLoaderPage />}
+        ></Route>
       </Routes>
     </div>
   );
@@ -132,6 +137,15 @@ const Nav = () => {
           <li>
             <a href="/drawing-app" target="_blank" rel="noopener noreferrer">
               Drawing App
+            </a>
+          </li>
+          <li>
+            <a
+              href="/kinetic-css-loader"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Kinetic Css Loader
             </a>
           </li>
         </ul>

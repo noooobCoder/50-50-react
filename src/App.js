@@ -118,6 +118,11 @@ const Nav = () => {
               Content Placeholder
             </a>
           </li>
+          <li>
+            <a href="/sticky-navbar" target="_blank" rel="noopener noreferrer">
+              Sticky Navbar
+            </a>
+          </li>
         </ul>
       </nav>
     </div>

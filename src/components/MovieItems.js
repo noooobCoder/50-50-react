@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Skeleton from "react-loading-skeleton";
@@ -8,6 +8,12 @@ import styles from "../pages/MovieAppPage/styles.module.css";
 const MovieItems = ({ src, title, score, overview, color, loading }) => {
   const handleImageError = (e) => {
     e.target.src = "http://iph.href.lu/300x450?text=啊偶，图片不见了";
+  };
+
+  const [loaded, setLoaded] = useState(false);
+
+  const handleImageLoad = () => {
+    setLoaded(true);
   };
 
   // const isImage = () => {
@@ -35,24 +41,26 @@ const MovieItems = ({ src, title, score, overview, color, loading }) => {
     <div className={styles.movie}>
       {loading ? (
         <Skeleton
-          className={styles.image}
+          className={`${styles.image} ${styles.animatedBg}`}
           baseColor="#373b69"
           highlightColor="#444"
         />
       ) : (
         <LazyLoadImage
-          className={styles.image}
+          className={`${styles.image} ${loaded ? "" : styles.animatedBg}`}
           src={src}
           alt={title}
           effect="blur"
           placeholderSrc="https://via.placeholder.com/300x450" // 替换为一个小的占位符图片
           onError={handleImageError}
+          onLoad={handleImageLoad}
         />
       )}
       <div className={styles.movieInfo}>
         {loading ? (
           <>
             <Skeleton
+              className={`${styles.animatedBg} ${styles.animatedText}`}
               count={1}
               height={40}
               width={200}
@@ -60,7 +68,7 @@ const MovieItems = ({ src, title, score, overview, color, loading }) => {
               highlightColor="#444"
             />
             <Skeleton
-              className={`${color} ${styles.span}`}
+              className={`${color} ${styles.span} ${styles.animatedBg} ${styles.animatedText}`}
               height={25}
               width={50}
             />
@@ -74,7 +82,14 @@ const MovieItems = ({ src, title, score, overview, color, loading }) => {
       </div>
       <div className={styles.overview}>
         <h3>Overview</h3>
-        {loading ? <Skeleton count={3} /> : overview}
+        {loading ? (
+          <Skeleton
+            count={3}
+            className={`${styles.animatedBg} ${styles.animatedText}`}
+          />
+        ) : (
+          overview
+        )}
       </div>
     </div>
   );

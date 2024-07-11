@@ -1,54 +1,15 @@
 import React from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
-import ExpandingCardsPage from "./pages/ExpandingCardsPage";
-import RandomChoicePickerPage from "./pages/RandomChoicePickerPage";
-import AnimatedNavigationPage from "./pages/AnimatedNavigationPage";
-import IncrementingCounterPage from "./pages/IncrementingCounterPage";
-import DrinkWaterPage from "./pages/DrinkWaterPage";
-import MovieAppPage from "./pages/MovieAppPage";
-import BackgroundSliderPage from "./pages/BackgroundSliderPage";
-import ThemeClockPage from "./pages/ThemeClockPage";
-import ButtonRippleEffectPage from "./pages/ButtonRippleEffectPage";
-import DragNDropPage from "./pages/DragNDropPage";
-import DrawingAppPage from "./pages/DrawingAppPage";
-import KineticCssLoaderPage from "./pages/KineticCssLoaderPage";
+import PageLoader from "./PageLoader";
 
 function App() {
+  // PageLoader();
   const location = useLocation();
   return (
     <div>
       {location.pathname === "/" && <Nav />}
       <Routes>
-        <Route path="/expanding-cards" element={<ExpandingCardsPage />} />
-        <Route
-          path="/random-choice-picker"
-          element={<RandomChoicePickerPage />}
-        />
-        <Route
-          path="/animated-navigation"
-          element={<AnimatedNavigationPage />}
-        ></Route>
-        <Route
-          path="/incrementing-counter"
-          element={<IncrementingCounterPage />}
-        ></Route>
-        <Route path="/drink-water" element={<DrinkWaterPage />}></Route>
-        <Route path="/movie-app" element={<MovieAppPage />}></Route>
-        <Route
-          path="/background-slider"
-          element={<BackgroundSliderPage />}
-        ></Route>
-        <Route path="/theme-clock" element={<ThemeClockPage />}></Route>
-        <Route
-          path="/button-ripple-effect"
-          element={<ButtonRippleEffectPage />}
-        ></Route>
-        <Route path="/drag-N-drop" element={<DragNDropPage />}></Route>
-        <Route path="/drawing-app" element={<DrawingAppPage />}></Route>
-        <Route
-          path="/kinetic-css-loader"
-          element={<KineticCssLoaderPage />}
-        ></Route>
+        <Route path="/*" element={<PageLoader />} />
       </Routes>
     </div>
   );
@@ -146,6 +107,15 @@ const Nav = () => {
               rel="noopener noreferrer"
             >
               Kinetic Css Loader
+            </a>
+          </li>
+          <li>
+            <a
+              href="/content-placeholder"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Content Placeholder
             </a>
           </li>
         </ul>

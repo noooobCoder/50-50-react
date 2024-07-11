@@ -143,3 +143,27 @@
 .movie:hover .overview {
   transform: translateY(0);
 }
+
+.animatedBg {
+  background-image: linear-gradient(to right, #f6f7f8 0%, #e2e3e7 10%, #f6f7f8 20%, #f6f7f8 100%);
+  background-size: 200% 100%;
+  animation: animation-bg 1s linear infinite;
+}
+
+.animatedText {
+  border-radius: 50px;
+  display: inline-block;
+  margin: 0;
+  height: 10px;
+  width: 100%;
+}
+
+@keyframes animation-bg {
+  0% {
+    background-position: 50% 0;
+  }
+
+  100% {
+    background-position: -150% 0;
+  }
+}

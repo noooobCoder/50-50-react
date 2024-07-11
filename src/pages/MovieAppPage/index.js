@@ -54,7 +54,7 @@ const MovieAppPage = () => {
     const res = await fetch(url);
     const data = await res.json();
     // console.log(data.results);
-    setMovies(data.results);
+    await setMovies(data.results);
     setLoading(false);
   };
 

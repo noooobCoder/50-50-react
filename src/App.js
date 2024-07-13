@@ -123,6 +123,15 @@ const Nav = () => {
               Sticky Navbar
             </a>
           </li>
+          <li>
+            <a
+              href="/double-vertical-slider"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Double Vertical Slider
+            </a>
+          </li>
         </ul>
       </nav>
     </div>

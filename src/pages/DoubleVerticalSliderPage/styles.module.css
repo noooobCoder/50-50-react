@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+* {
+  box-sizing: border-box;
+}
+
+.body {
+  font-family: "Open Sans", sans-serif;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.sliderContainer {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+}
+
+.leftSlide {
+  width: 35%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s ease-in-out;
+}
+
+.title {
+  font-size: 40px;
+  margin: -30px 0 10px;
+}
+
+.leftSlide > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #000;
+}
+
+.rightSlide {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 35%;
+  width: 65%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.rightSlide > div {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.actionButtons {
+  background-color: transparent;
+}
+
+.actionButtons > button {
+  position: absolute;
+  left: 35%;
+  top: 50%;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  color: #7e7d7d;
+  font-size: 18px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.actionButtons > button:hover {
+  color: #000;
+}
+
+.actionButtons > button:focus {
+  outline: none;
+}
+
+.actionButtons > .up {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  transform: translateY(-100%);
+}
+
+.actionButtons > .down {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  transform: translateX(-100%);
+}
+
+.actionButtons > button::before {
+  content: '';
+  position: absolute;
+  left: -100%;
+  top: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg,
+    #ffffff00,
+    #ffffff00 40%,
+    #ffffff 50%,
+    #ffffff00 60%);
+  transition: 0.3s;
+  /* transform: translateX(-100%); */
+}
+
+.actionButtons > button:active::before {
+  top: 100%;
+  left: 100%;
+}
+
+.actionButtons > .up:active {
+  transform: scale(0.96) translate(-2%, -100%);
+}
+
+.actionButtons > .down:active {
+  transform: scale(0.96) translateX(-102%);
+}

@@ -14,7 +14,6 @@ const DoubleVerticalSlider = () => {
   }, [slidesLength]);
 
   const changeSlide = (direction) => {
-    const sliderHeight = sliderContainerRef.current.clientHeight;
     if (direction === "up") {
       setActiveSlideIndex((prev) => (prev + 1) % slidesLength);
     } else if (direction === "down") {
@@ -22,22 +21,21 @@ const DoubleVerticalSlider = () => {
     }
 
     rightSlideRef.current.style.transform = `translateY(-${
-      activeSlideIndex * sliderHeight
-    }px)`;
+      activeSlideIndex * 100
+    }vh)`;
     leftSlideRef.current.style.transform = `translateY(${
-      activeSlideIndex * sliderHeight
-    }px)`;
+      activeSlideIndex * 100
+    }vh)`;
   };
 
   useEffect(() => {
     const updateSlidePosition = () => {
-      const sliderHeight = sliderContainerRef.current.clientHeight;
       rightSlideRef.current.style.transform = `translateY(-${
-        activeSlideIndex * sliderHeight
-      }px)`;
+        activeSlideIndex * 100
+      }vh)`;
       leftSlideRef.current.style.transform = `translateY(${
-        activeSlideIndex * sliderHeight
-      }px)`;
+        activeSlideIndex * 100
+      }vh)`;
     };
 
     updateSlidePosition();

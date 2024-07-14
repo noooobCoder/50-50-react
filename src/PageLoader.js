@@ -4,6 +4,8 @@ import loadable from "@loadable/component";
 
 const requirePage = require.context("./pages", true, /index\.js$/);
 
+// console.log(requirePage.keys());
+
 const pages = requirePage.keys().reduce((pages, file) => {
   const page = file.replace("./", "").replace("/index.js", "");
   pages[page] = loadable(() => import(`./pages/${page}/index.js`));

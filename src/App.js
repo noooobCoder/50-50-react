@@ -132,6 +132,15 @@ const Nav = () => {
               Double Vertical Slider
             </a>
           </li>
+          <li>
+            <a
+              href="/toast-notification"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Toast Notification
+            </a>
+          </li>
         </ul>
       </nav>
     </div>

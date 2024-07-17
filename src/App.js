@@ -170,6 +170,15 @@ const Nav = () => {
               Github Profiles
             </a>
           </li>
+          <li>
+            <a
+              href="/double-click-heart"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Double Click Heart
+            </a>
+          </li>
         </ul>
       </nav>
     </div>

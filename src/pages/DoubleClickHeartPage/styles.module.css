@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css?family=Oswald");
+* {
+  box-sizing: border-box;
+}
+
+.body {
+  font-family: "Oswald", sans-serif;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+}
+
+.title {
+  margin: 10px 0 0;
+}
+
+.icon {
+  color: red;
+}
+
+.loveMe {
+  cursor: pointer;
+  height: 500px;
+  width: 1000px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: 0;
+  max-width: 100%;
+  position: relative;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.loveMe .icon {
+  position: absolute;
+  animation: grow 0.6s linear;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.btn {
+  z-index: 100;
+  position: absolute;
+  top: 50%;
+  padding: 20px;
+  transform: translateY(-50%);
+  border: none;
+  background-color: rgba(70, 70, 70, 0.5);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 20px;
+  color: #fff;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:hover {
+  color: #222222;
+}
+
+.btn:active {
+  transform: translateY(-50%) scale(0.85);
+}
+
+.btn.left {
+  left: 0;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  left: calc(-5.5vw);
+}
+
+.btn.right {
+  right: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  right: calc(-5.5vw);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  left: -100%;
+  top: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg,
+    #ffffff00,
+    #ffffff00 40%,
+    #ffffff 50%,
+    #ffffff00 60%);
+  transition: 0.3s;
+}
+
+.btn:active::before {
+  top: 100%;
+  left: 100%;
+}
+
+@keyframes grow {
+  to {
+    transform: translate(-50%, -50%) scale(8);
+    opacity: 0;
+  }
+}

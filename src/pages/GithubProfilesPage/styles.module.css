@@ -110,6 +110,12 @@
   display: inline-block;
 }
 
+/* @media (min-width: 300px) {
+  .userForm {
+    min-width: 300px;
+  }
+} */
+
 @media (max-width: 620px) {
   .card {
     flex-direction: column;

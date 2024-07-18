@@ -179,6 +179,15 @@ const Nav = () => {
               Double Click Heart
             </a>
           </li>
+          <li>
+            <a
+              href="/auto-text-effect"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Auto Text Effect
+            </a>
+          </li>
         </ul>
       </nav>
     </div>

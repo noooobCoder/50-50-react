@@ -188,6 +188,15 @@ const Nav = () => {
               Auto Text Effect
             </a>
           </li>
+          <li>
+            <a
+              href="/password-generator"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Password Generator
+            </a>
+          </li>
         </ul>
       </nav>
     </div>

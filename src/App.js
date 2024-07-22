@@ -197,6 +197,15 @@ const Nav = () => {
               Password Generator
             </a>
           </li>
+          <li>
+            <a
+              href="/good-cheap-fast"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Good Cheap Fast
+            </a>
+          </li>
         </ul>
       </nav>
     </div>

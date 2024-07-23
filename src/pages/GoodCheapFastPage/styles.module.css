@@ -34,7 +34,7 @@
   height: 40px;
   width: 67px;
   position: relative;
-  transition: all 0.25s ease-in-out;
+  animation: toUnChecked 0.5s cubic-bezier(.22, .52, .57, 1) forwards;
 }
 
 .ball {
@@ -46,15 +46,34 @@
   top: 3px;
   left: 3px;
   box-shadow: 2px 0 4px rgba(0, 0, 0, 0.25);
-  animation: slideOff 0.25s ease-in-out forwards;
+  animation: slideOff 0.5s ease-in-out forwards;
 }
 
 .toggle:checked + .label {
   background-color: #30d158;
+  animation: toChecked 0.5s cubic-bezier(.75, -0.08, .69, .44) forwards;
 }
 
 .toggle:checked + .label .ball {
-  animation: slideOn 0.25s ease-in-out forwards;
+  animation: slideOn 0.5s ease-in-out forwards;
+}
+
+@keyframes toChecked {
+  0% {
+    background-color: #d0d0d0;
+  }
+  100% {
+    background-color: #30d158;
+  }
+}
+
+@keyframes toUnChecked {
+  0% {
+    background-color: #30d158;
+  }
+  100% {
+    background-color: #d0d0d0;
+  }
 }
 
 @keyframes slideOn {

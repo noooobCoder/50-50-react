@@ -41,6 +41,7 @@ const GoodCheapFastPage = () => {
           onChange={() => handleChange("Cheap")}
         />
         <label htmlFor="cheap" className={styles.label}>
+          <div className={styles.bar}></div>
           <div className={styles.ball}></div>
         </label>
         <span>Cheap</span>
@@ -54,6 +55,7 @@ const GoodCheapFastPage = () => {
           onChange={() => handleChange("Fast")}
         />
         <label htmlFor="fast" className={styles.label}>
+          <div className={styles.bar}></div>
           <div className={styles.ball}></div>
         </label>
         <span>Fast</span>

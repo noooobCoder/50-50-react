@@ -16,22 +16,22 @@ function App() {
 }
 
 const Nav = () => {
-  // const requirePage = require.context("./pages", true, /index\.js$/);
-  // const pages = requirePage.keys().map((page) =>
-  //   page
-  //     .replace("./", "")
-  //     .replace("/index.js", "")
-  //     .replace("Page", "")
-  //     .replace(/([a-z])([A-Z])/g, "$1-$2")
-  //     .replace(/([A-Z])([A-Z][a-z])/g, "$1-$2")
-  //     .toLowerCase()
-  // );
+  const requirePage = require.context("./pages", true, /index\.js$/);
+  const pages = requirePage.keys().map((page) =>
+    page
+      .replace("./", "")
+      .replace("/index.js", "")
+      .replace("Page", "")
+      .replace(/([a-z])([A-Z])/g, "$1-$2")
+      .replace(/([A-Z])([A-Z][a-z])/g, "$1-$2")
+      .toLowerCase()
+  );
   return (
     <div>
       <h1>Only For Convenient</h1>
       <nav>
         <ul>
-          {/* {pages.map((page) => (
+          {pages.map((page) => (
             <li key={page}>
               <a href={`/${page}`} target="_blank" rel="noopener noreferrer">
                 {page
@@ -40,8 +40,8 @@ const Nav = () => {
                   .join(" ")}
               </a>
             </li>
-          ))} */}
-          <li>
+          ))}
+          {/* <li>
             <a
               href="/expanding-cards"
               target="_blank"
@@ -205,7 +205,7 @@ const Nav = () => {
             >
               Good Cheap Fast
             </a>
-          </li>
+          </li> */}
         </ul>
       </nav>
     </div>

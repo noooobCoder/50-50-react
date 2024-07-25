@@ -26,6 +26,7 @@ const Note = ({ text, onDelete, onUpdate }) => {
       {!isEditing ? (
         <div
           className={styles.main}
+          onDoubleClick={() => setIsEditing(!isEditing)}
           dangerouslySetInnerHTML={{ __html: marked(text) }}
         ></div>
       ) : (

@@ -26,9 +26,9 @@ const DoubleClickHeart = () => {
       setActiveSlideIndex((prev) => (prev + 1) % slideLength);
     }
 
-    slideRef.current.style.transform = `translateX(-${
-      activeSlideIndex * 80
-    }vw)`;
+    // slideRef.current.style.transform = `translateX(-${
+    //   activeSlideIndex * 80
+    // }vw)`;
   };
 
   useEffect(() => {

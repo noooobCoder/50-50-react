@@ -9,6 +9,7 @@
   margin: 0;
   height: 100vh;
   overflow: hidden;
+  user-select: none;
 }
 
 .prepare {
@@ -123,4 +124,23 @@
   100% {
     transform: translate(-50%, -50%) rotate(-120deg);
   }
+}
+
+.replay {
+  border: none;
+  background-color: #3498db;
+  color: #fff;
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.replay:hover {
+  background-color: #2980b9;
+}
+
+.replay:active {
+  background-color: #2471a3;
 }

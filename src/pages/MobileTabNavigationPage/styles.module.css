@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+}
+
+.body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #141414;
+  overflow: hidden;
+}
+
+.phone {
+  width: 340px;
+  height: 680px;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  border: 3px solid #eee;
+}
+
+.content {
+  position: absolute;
+  left: -20%;
+  top: 0;
+  width: 400%;
+  height: calc(100% - 60px);
+  opacity: 0;
+  object-fit: cover;
+  transition: opacity 0.4s ease;
+}
+
+.content.Home {
+  left: -150%;
+}
+
+.content.Work {
+  left: -20%;
+}
+
+.content.Blog {
+  left: -220%;
+}
+
+.content.About {
+  left: -41%;
+}
+
+.content.show {
+  opacity: 1;
+}
+
+.nav {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  margin-top: -5px;
+  width: 100%;
+}
+
+.nav .ul {
+  display: flex;
+  /* justify-content: space-between; */
+  background-color: #fff;
+  height: 60px;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.nav .li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #777;
+  cursor: pointer;
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+}
+
+.nav .li:hover {
+  color: #8e44ad;
+}
+
+.nav .li.active {
+  color: #8e44ad;
+}
+
+.icon {
+  font-weight: 900;
+}
+
+.name {
+  font-size: 12px;
+  margin: 2px 0;
+}

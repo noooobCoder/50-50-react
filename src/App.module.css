@@ -1,0 +1,29 @@
+.body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  text-align: center;
+}
+
+.title {
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 20px;
+  column-gap: 20px;
+  padding: 10px 0;
+}
+
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  width: 120px;
+  background-color: antiquewhite;
+}

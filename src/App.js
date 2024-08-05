@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import PageLoader from "./PageLoader";
+import styles from "./App.module.css";
 
 function App() {
   // PageLoader();
@@ -27,12 +28,12 @@ const Nav = () => {
       .toLowerCase()
   );
   return (
-    <div>
-      <h1>Only For Convenient</h1>
+    <div className={styles.body}>
+      <h1 className={styles.title}>Only For Convenient</h1>
       <nav>
-        <ul>
+        <ul className={styles.ul}>
           {pages.map((page) => (
-            <li key={page}>
+            <li key={page} className={styles.page}>
               <a href={`/${page}`} target="_blank" rel="noopener noreferrer">
                 {page
                   .split("-")

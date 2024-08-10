@@ -74,6 +74,24 @@
   width: 100%;
 }
 
+.number {
+  color: #fff;
+  background-color: #3b3b98;
+  border-radius: 5px;
+  padding: 0 5px;
+  text-align: center;
+}
+
+.number:focus {
+  outline: none;
+}
+
+.number::-webkit-outer-spin-button,
+.number::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .password {
   word-wrap: break-word;
   max-width: calc(100% - 40px);

@@ -27,6 +27,7 @@
   text-align: center;
   padding: 30px;
   max-width: 400px;
+  view-transition-name: panel-change;
 }
 
 .container {
@@ -89,6 +90,27 @@
 
 .end {
   line-height: 20px;
+  padding-bottom: 20px;
+}
+
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes shrink-x {
+  from {
+    transform: scaleX(1);
+  }
+
+  to {
+    transform: scaleX(0);
+  }
 }
 
 @keyframes fadeIn {
@@ -113,10 +135,22 @@
   }
 }
 
-.panel[view-transition-name="fade-in"] {
+/* .panel[view-transition-name="fade-in"] {
   animation: fadeIn 10s ease forwards;
+} */
+
+::view-transition-old(panel-change) {
+  animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fadeOut;
 }
 
-.panel[view-transition-name="fade-out"] {
-  animation: fadeOut 10s ease forwards;
+::view-transition-new(panel-change) {
+  animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fadeIn;
 }
+
+/* ::view-transition-old(panel-change) {
+  animation: 0.25s linear both shrink-x;
+}
+
+::view-transition-new(panel-change) {
+  animation: 0.25s 0.25s linear both grow-x;
+} */

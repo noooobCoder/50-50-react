@@ -26,10 +26,10 @@ const FeedbackDesign = () => {
   const handleFinish = () => {
     if (document.startViewTransition) {
       document.startViewTransition(() => {
-        setFinish(true);
+        setFinish((oldState) => !oldState);
       });
     } else {
-      setFinish(true);
+      setFinish((oldState) => !oldState);
     }
   };
 
@@ -37,7 +37,7 @@ const FeedbackDesign = () => {
     <div className={styles.body}>
       {/* <div className={styles.panel}> */}
       {finish ? (
-        <div className={styles.panel} style={{ viewTransitionName: "fade-in" }}>
+        <div className={styles.panel}>
           <i className={`${styles.icon} fas fa-heart`}></i>
           <strong>Thank You!</strong>
           <br />
@@ -46,12 +46,12 @@ const FeedbackDesign = () => {
           <p className={styles.end}>
             We'll use your feedback to improve our customer support.
           </p>
+          <button className={styles.btn} onClick={handleFinish}>
+            Back
+          </button>
         </div>
       ) : (
-        <div
-          className={styles.panel}
-          style={{ viewTransitionName: "fade-out" }}
-        >
+        <div className={styles.panel}>
           <strong>
             How satisfied are you with our <br /> customer support performance?
           </strong>

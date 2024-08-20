@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+.body {
+  font-family: "Muli", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url('../../images/01.JPG');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  user-select: none;
+}
+
+.navBtn {
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 20px;
+  border: none;
+}
+
+.logo {
+  width: 180px;
+}
+
+.description {
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  transform: translateX(-105%);
+  transition: 0.3s ease-in-out;
+}
+
+.nav.open {
+  transform: translateX(0);
+}
+
+.navBlue {
+  background-color: rgba(122, 252, 255, 0.5);
+  backdrop-filter: blur(2px);
+  width: 40%;
+  max-width: 480px;
+  min-width: 320px;
+  transition-delay: 0.4s;
+  box-shadow: 5px 0 3px rgba(0, 0, 0, 0.3);
+  border-top-right-radius: 3%;
+}
+
+.navPink {
+  background-color: rgba(255, 126, 185, 0.3);
+  backdrop-filter: blur(2px);
+  width: 95%;
+  transition-delay: 0.2s;
+  box-shadow: 5px 0 3px rgba(0, 0, 0, 0.3);
+  border-top-right-radius: 3%;
+}
+
+.navWhite {
+  background-color: rgb(255, 255, 255, 0.5);
+  backdrop-filter: blur(2px);
+  width: 95%;
+  transition-delay: 0s;
+  position: relative;
+  padding: 40px;
+  box-shadow: 5px 0 3px rgba(0, 0, 0, 0.3);
+  border-top-right-radius: 3%;
+}
+
+.navBlue.open {
+  transition-delay: 0s;
+}
+
+.navPink.open {
+  transition-delay: 0.2s;
+}
+
+.navWhite.open {
+  transition-delay: 0.4s;
+}
+
+.openBtn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
+.closeBtn {
+  opacity: 0.3;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.list ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.list li {
+  margin: 20px 0;
+}
+
+.list li a {
+  color: rgb(34, 31, 31);
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+}

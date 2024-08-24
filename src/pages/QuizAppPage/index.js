@@ -55,13 +55,19 @@ const QuizApp = () => {
     setSelectedAnswer(null);
   };
 
+  const handleRetry = () => {
+    setQid(0);
+    setScore(0);
+    setSelectedAnswer(null);
+  };
+
   return (
     <div className={styles.body}>
       <div className={styles.quizContainer}>
         {qid < quizData.length ? (
           <>
             <div className={styles.quizHeader}>
-              <h2>{quizData[qid].question}</h2>
+              <h2 className={styles.h2}>{quizData[qid].question}</h2>
               <ul>
                 {options.map((option) => (
                   <li>
@@ -78,12 +84,19 @@ const QuizApp = () => {
                 ))}
               </ul>
             </div>
-            <button onClick={handleNextQuestion}>
+            <button className={styles.btn} onClick={handleNextQuestion}>
               {qid === quizData.length - 1 ? "Submit" : "Next Question"}
             </button>
           </>
         ) : (
-          <h2>{`You Answered ${score}/${quizData.length} Questions Correctly`}</h2>
+          <>
+            <h2 className={styles.h2}>
+              {`You Answered ${score}/${quizData.length} Questions   Correctly`}
+            </h2>
+            <button className={styles.btn} onClick={handleRetry}>
+              Retry
+            </button>
+          </>
         )}
       </div>
     </div>

@@ -59,6 +59,7 @@
   margin: 0;
   list-style-type: none;
   width: 100%;
+  transition: all 0.5s ease;
 }
 
 .todo {
@@ -67,7 +68,7 @@
   cursor: pointer;
   font-size: 1.5rem;
   padding: 1rem 2rem;
-  transition: all 0.4s ease;
+  /* transition: all 0.5s ease; */
 }
 
 .todo.complete {
@@ -92,24 +93,44 @@
   transition: opacity .5s ease, transform .5s ease;
 }
 
-.todoExitRight {
+/* .todoExitRight {
   opacity: 1;
   transform: translateX(0);
+} */
+.todoExitRight {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.5s ease;
 }
 
 .todoExitRightActive {
+  height: 0;
+  padding: 0;
+  transition: all 0.5s ease;
+}
+/* .todoExitRightActive {
   opacity: 0;
   transform: translateX(100%);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
+  transition: all 0.5s ease;
+} */
 
 .todoExitLeft {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.todoExitLeftActive {
   opacity: 0;
   transform: translateX(-100%);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: all 0.5s ease;
+}
+/* .todoExitLeft {
+  opacity: 1;
+  transform: translateX(0);
+} */
+
+/* .todoExitLeftActive {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 0.5s ease;
+} */
+.todoExitLeftActive {
+  height: 0;
+  padding: 0;
+  transition: all 0.5s ease 0.5s;
 }

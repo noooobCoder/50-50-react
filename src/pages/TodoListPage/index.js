@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import styles from "./styles.module.css";
 
 const TodoList = () => {
@@ -53,20 +54,34 @@ const TodoList = () => {
             setCurrentTodo({ complete: false, content: e.target.value })
           }
         />
-        <ul className={styles.todos}>
+        <TransitionGroup component="ul" className={styles.todos}>
           {todos.map((todo, id) => (
-            <li
+            <CSSTransition
               key={id}
-              className={`${styles.todo} ${
-                todo.complete ? styles.complete : ""
-              }`}
-              onClick={() => handleClick(todo)}
-              onContextMenu={(e) => handleRightClick(e, todo)}
+              timeout={500}
+              classNames={{
+                enter: styles.todoEnter,
+                enterActive: styles.todoEnterActive,
+                exit: todo.complete
+                  ? styles.todoExitRight
+                  : styles.todoExitLeft,
+                exitActive: todo.complete
+                  ? styles.todoExitRightActive
+                  : styles.todoExitLeftActive,
+              }}
             >
-              {todo.content}
-            </li>
+              <li
+                className={`${styles.todo} ${
+                  todo.complete ? styles.complete : ""
+                }`}
+                onClick={() => handleClick(todo)}
+                onContextMenu={(e) => handleRightClick(e, todo)}
+              >
+                {todo.content}
+              </li>
+            </CSSTransition>
           ))}
-        </ul>
+        </TransitionGroup>
       </form>
       <small className={styles.small}>
         Left Click to toggle Completed.

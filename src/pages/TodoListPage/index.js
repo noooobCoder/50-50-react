@@ -43,8 +43,6 @@ const TodoList = () => {
     localStorage.setItem("todos", JSON.stringify(todosWithoutRefs));
   }, [todos]);
 
-  console.log(todos);
-
   return (
     <div className={styles.body}>
       <h1 className={styles.title}>todos</h1>

@@ -32,7 +32,7 @@ const TodoList = () => {
     if (content) {
       setTodos([
         ...todos,
-        { id: Date.now(), complete: false, content, nodeRef: createRef() },
+        { id: Date.now(), complete: false, content, nodeRef: createRef(null) },
       ]);
       setContent("");
     }
@@ -68,9 +68,49 @@ const TodoList = () => {
                 exit: todo.complete
                   ? styles.todoExitRight
                   : styles.todoExitLeft,
-                exitActive: todo.complete
-                  ? styles.todoExitRightActive
-                  : styles.todoExitLeftActive,
+                // exitActive: todo.complete
+                //   ? styles.todoExitRightActive
+                //   : styles.todoExitLeftActive,
+              }}
+              onExiting={() => {
+                if (todo.nodeRef.current) {
+                  const element = todo.nodeRef.current;
+
+                  const height = element.offsetHeight;
+
+                  console.log(height);
+
+                  const animationOptions = {
+                    duration: 1000,
+                    easing: "ease",
+                    fill: "forwards",
+                  };
+
+                  const animationKeyframes = [
+                    {
+                      opacity: 1,
+                      transform: "translateX(0)",
+                      height: `${height}px`,
+                    },
+                    {
+                      opacity: 0,
+                      transform: todo.complete
+                        ? "translateX(100%)"
+                        : "translateX(-100%)",
+                      height: `${height}px`,
+                    },
+                    {
+                      opacity: 0,
+                      transform: todo.complete
+                        ? "translateX(100%)"
+                        : "translateX(-100%)",
+                      height: "0",
+                      padding: "0",
+                    },
+                  ];
+
+                  element.animate(animationKeyframes, animationOptions);
+                }
               }}
             >
               <li

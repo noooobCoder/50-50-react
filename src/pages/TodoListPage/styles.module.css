@@ -70,6 +70,7 @@
   font-size: 1.5rem;
   padding: 1rem 2rem;
   transition: all 0.5s ease;
+  overflow-wrap: anywhere;
 }
 
 .todo.complete {
@@ -99,13 +100,13 @@
   transform: translateX(0);
 }
 
-.todoExitRightActive {
-  animation: exitSequenceRight 1s ease forwards;
-}
-
 .todoExitLeft {
   opacity: 1;
   transform: translateX(0);
+}
+
+.todoExitRightActive {
+  animation: exitSequenceRight 1s ease forwards;
 }
 
 .todoExitLeftActive {
@@ -135,6 +136,7 @@
   0% {
     opacity: 1;
     transform: translateX(0);
+    height: auto;
   }
 
   50% {

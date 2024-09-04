@@ -126,7 +126,7 @@ html.dark {
   transform: translate(-50%, -50%);
 }
 
-.center::after {
+.center::before {
   content: "";
   background-color: var(--primary-color);
   height: 5px;

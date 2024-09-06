@@ -1,8 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
 .body {
   margin: 0;
   padding: 0;
+  padding-top: 20px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   text-align: center;
+  background: #333;
+  color: #f0f0f0;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.5;
 }
 
 .title {
@@ -10,19 +22,78 @@
   font-size: larger;
 }
 
-.ul {
+.pages {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  justify-items: center;
-  padding: 10px;
-  row-gap: 20px;
+  grid-template-columns: repeat(5, 1fr);
+  /* justify-items: center; */
+  grid-gap: 2px;
+  user-select: none;
 }
 
 .page {
+  position: relative;
+  cursor: pointer;
+  height: 100%;
+}
+
+.page:hover .content {
+  opacity: 0.98;
+}
+
+.content {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(1px);
+  color: #333;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 120px;
-  width: 120px;
-  background-color: antiquewhite;
+  text-align: center;
+  transition: all 0.3s ease-in;
+}
+
+
+.img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.link {
+  color: rgb(67, 98, 252);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  padding: 0 5px;
+  font-weight: bolder;
+}
+
+.link::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  transform: translateX(-120%);
+  transition: all 0.3s ease-in-out;
+}
+
+.link:hover::before {
+  transform: translateX(0);
+}
+
+.link:hover {
+  text-decoration: none;
 }

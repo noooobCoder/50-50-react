@@ -27,20 +27,33 @@ const Nav = () => {
       .replace(/([A-Z])([A-Z][a-z])/g, "$1-$2")
       .toLowerCase()
   );
+  console.log(pages);
   return (
     <div className={styles.body}>
-      <h1 className={styles.title}>Only For Convenient</h1>
+      <h1 className={styles.title}>{`^\\d+ Days \\d+ Projects$`}</h1>
       <nav>
-        <ul className={styles.ul}>
+        <section className={styles.pages}>
           {pages.map((page) => (
-            <li key={page} className={styles.page}>
-              <a href={`/${page}`} target="_blank" rel="noopener noreferrer">
-                {page
-                  .split("-")
-                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                  .join(" ")}
-              </a>
-            </li>
+            <div key={page} className={styles.page}>
+              <img src={`images/${page}.png`} alt="" className={styles.img} />
+              <div className={styles.content}>
+                <h4 className={styles.title}>
+                  {" "}
+                  {page
+                    .split("-")
+                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(" ")}
+                </h4>
+                <a
+                  className={styles.link}
+                  href={`/${page}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Live Demo
+                </a>
+              </div>
+            </div>
           ))}
           {/* <li>
             <a
@@ -207,7 +220,7 @@ const Nav = () => {
               Good Cheap Fast
             </a>
           </li> */}
-        </ul>
+        </section>
       </nav>
     </div>
   );

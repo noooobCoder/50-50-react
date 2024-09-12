@@ -35,36 +35,43 @@ function getIndexFiles(directory) {
   return indexFiles;
 }
 
-const indexFilePaths = getIndexFiles(path.resolve(__dirname, "./pages"));
-const pages = indexFilePaths.map((indexFilePath) => {
-  const parentDirectory = path
-    .basename(path.dirname(indexFilePath))
-    .replace("Page", "")
-    .replace(/([a-z])([A-Z])/g, "$1-$2")
-    .replace(/([A-Z])([A-Z][a-z])/g, "$1-$2")
-    .toLowerCase();
+// const indexFilePaths = getIndexFiles(path.resolve(__dirname, "./pages"));
+// const pages = indexFilePaths.map((indexFilePath) => {
+//   const parentDirectory = path
+//     .basename(path.dirname(indexFilePath))
+//     .replace("Page", "")
+//     .replace(/([a-z])([A-Z])/g, "$1-$2")
+//     .replace(/([A-Z])([A-Z][a-z])/g, "$1-$2")
+//     .toLowerCase();
 
-  const url = `http://localhost:3000/${parentDirectory}`;
+//   const url = `http://localhost:3000/${parentDirectory}`;
 
-  const savePath = `../public/images/${parentDirectory}.png`;
+//   const savePath = `../public/images/${parentDirectory}.png`;
 
-  return { url, savePath };
-});
+//   return { url, savePath };
+// });
 
 const width = 800;
 const height = 800;
 
-console.log(pages);
+// console.log(pages);
 
-const runScreenshots = async () => {
-  for (const { url, savePath } of pages) {
-    try {
-      await captureScreenshot(url, width, height, savePath);
-      console.log(`Screenshot saved to ${savePath}`);
-    } catch (error) {
-      console.error("Error capturing screenshot:", error);
-    }
-  }
+let page = {
+  url: `http://localhost:3000/shape-outside`,
+  savePath: `../public/images/shape-outside.png`,
 };
 
-runScreenshots();
+captureScreenshot(page.url, width, height, page.savePath);
+
+// const runScreenshots = async () => {
+//   for (const { url, savePath } of pages) {
+//     try {
+//       await captureScreenshot(url, width, height, savePath);
+//       console.log(`Screenshot saved to ${savePath}`);
+//     } catch (error) {
+//       console.error("Error capturing screenshot:", error);
+//     }
+//   }
+// };
+
+// runScreenshots();

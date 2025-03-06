@@ -1,17 +1,20 @@
-import React from "react";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
-import PageLoader from "./PageLoader";
+import React, {Suspense, lazy} from "react";
+import { BrowserRouter, Route, Routes, useLocation, Link } from "react-router-dom";
 import styles from "./App.module.css";
+const PageLoader = lazy(() => import("./PageLoader"));
 
 function App() {
   // PageLoader();
   const location = useLocation();
   return (
     <div>
-      {location.pathname === "/" && <Nav />}
-      <Routes>
-        <Route path="/*" element={<PageLoader />} />
-      </Routes>
+      {/* {location.pathname === "/" && <Nav />} */}
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<Nav />} />
+          <Route path="/*" element={<PageLoader />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 }
@@ -44,14 +47,12 @@ const Nav = () => {
                     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
                     .join(" ")}
                 </h4>
-                <a
+                <Link
                   className={styles.link}
-                  href={`/${page}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  to={`/${page}`}
                 >
                   Live Demo
-                </a>
+                </Link>
               </div>
             </div>
           ))}

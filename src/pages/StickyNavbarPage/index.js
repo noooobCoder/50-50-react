@@ -1,33 +1,42 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  useMemo,
+  useCallback,
+} from "react";
 import styles from "./styles.module.css";
 
 const StickyNavbar = () => {
   const [current, setCurrent] = useState("Home");
   const navRef = useRef(null);
 
-  const navItems = [
-    {
-      href: "#",
-      text: "Home",
-    },
-    {
-      href: "#",
-      text: "About",
-    },
-    {
-      href: "#",
-      text: "Services",
-    },
-    {
-      href: "#",
-      text: "Contact",
-    },
-  ];
+  const navItems = useMemo(
+    () => [
+      {
+        href: "#",
+        text: "Home",
+      },
+      {
+        href: "#",
+        text: "About",
+      },
+      {
+        href: "#",
+        text: "Services",
+      },
+      {
+        href: "#",
+        text: "Contact",
+      },
+    ],
+    []
+  );
 
-  const handleClick = (e) => {
+  const handleClick = useCallback((e) => {
     console.log(e.target.textContent);
     setCurrent(e.target.textContent);
-  };
+  }, []);
 
   const fixNav = () => {
     if (window.scrollY > navRef.current.offsetHeight) {

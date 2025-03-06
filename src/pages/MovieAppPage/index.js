@@ -1,7 +1,14 @@
 import styles from "./styles.module.css";
-import React, { useState, useEffect, useRef } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useMemo,
+  useCallback,
+} from "react";
 import MovieItems from "../../components/MovieItems";
 import { Grid } from "react-virtualized";
+import debounce from "lodash.debounce";
 
 const MovieAppPage = () => {
   const API_KEY = "37153a486788dafbb90b90b4ed4ae4a1";
@@ -45,28 +52,48 @@ const MovieAppPage = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(() => {
-    getMovies(API_URL);
-  }, [API_URL]);
-
-  const getMovies = async (url) => {
+  const getMovies = useCallback(async (url) => {
     setLoading(true);
     const res = await fetch(url);
     const data = await res.json();
     // console.log(data.results);
-    await setMovies(data.results);
+    setMovies(data.results);
     setLoading(false);
+  }, []);
+
+  useEffect(() => {
+    getMovies(API_URL);
+  }, [API_URL, getMovies]);
+
+  const previousSearchTerm = useRef("");
+
+  const handleSearch = useCallback(
+    (e) => {
+      e.preventDefault();
+
+      if (previousSearchTerm.current === e.target.value) return;
+      previousSearchTerm.current = e.target.value;
+      if (e.target.value && e.target.value !== "") {
+        getMovies(SEARCH_API + e.target.value);
+      }
+    },
+    [SEARCH_API, getMovies]
+  );
+
+  const doSomething = (searchTerm) => {
+    console.log(searchTerm);
   };
 
-  const handleSearch = (e) => {
-    e.preventDefault();
+  const debouncedSearchFn = useMemo(() => debounce(doSomething, 1000), []);
+  const debouncedHandleSearch = useMemo(
+    () => debounce(handleSearch, 1000),
+    [handleSearch]
+  );
 
-    if (searchTerm && searchTerm !== "") {
-      getMovies(SEARCH_API + searchTerm);
-      setSearchTerm("");
-    } else {
-      window.location.reload();
-    }
+  const handleSearchTermChange = (e) => {
+    setSearchTerm(e.target.value);
+    debouncedHandleSearch(e);
+    debouncedSearchFn(e.target.value);
   };
 
   const getClassByRate = (vote) => {
@@ -108,12 +135,13 @@ const MovieAppPage = () => {
   return (
     <div className={styles.body}>
       <header className={styles.header}>
-        <form className={styles.form} onSubmit={handleSearch}>
+        {/* <form className={styles.form} onSubmit={handleSearch}> */}
+        <form className={styles.form}>
           <input
             type="text"
             placeholder="Search..."
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={handleSearchTermChange}
             className={styles.search}
           />
         </form>
@@ -129,10 +157,11 @@ const MovieAppPage = () => {
           rowCount={Math.ceil(movies.length / dimensions.columnCount)}
           rowHeight={dimensions.rowHeight}
           width={dimensions.width}
+          overscanRowCount={2}
+          overscanColumnCount={1}
         />
       </main>
     </div>
   );
 };
-
 export default MovieAppPage;

@@ -33,7 +33,7 @@ const VerifyAccount = () => {
             <input
               key={idx}
               className={styles.code}
-              type="number"
+              type="text"
               inputMode="numeric"
               min={0}
               max={9}
